@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #071f5b;
+  --blue: #0a2b6d;
+  --gold: #f5b51b;
+  --orange: #b97810;
+  --ink: #182230;
+  --muted: #64748b;
+  --surface: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--navy);
+}
