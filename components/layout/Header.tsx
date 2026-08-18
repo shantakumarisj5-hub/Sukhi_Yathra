@@ -3,31 +3,35 @@
 import Link from "next/link";
 import { Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
-import { siteConfig } from "@/data/site";
 import Container from "@/components/ui/Container";
+import { siteConfig } from "@/data/site";
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Packages", href: "/packages" },
-  { label: "Destinations", href: "/destinations" },
+  { label: "Spiritual Journeys", href: "/spiritual-journeys" },
+  { label: "India Tours", href: "/india-tours" },
+  { label: "International Tours", href: "/international-tours" },
   { label: "Custom Tour", href: "/custom-tour" },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const closeMenu = () => setIsOpen(false);
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <Container className="flex h-[74px] items-center justify-between">
+    <header className="sticky top-0 z-[100] border-b border-slate-200 bg-white/95 backdrop-blur">
+      <Container className="flex h-[74px] items-center justify-between gap-3">
         <Link
           href="/"
-          className="flex items-center gap-3"
           onClick={closeMenu}
-          aria-label="Sukhi Yatra Holidays home"
+          className="flex shrink-0 items-center gap-3"
+          aria-label="Go to Sukhi Yatra Holidays homepage"
         >
           <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#071F5B] text-sm font-black text-[#F5B51B]">
             SY
@@ -43,8 +47,8 @@ export default function Header() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
-          {navLinks.map((link) => (
+        <nav className="hidden items-center gap-5 xl:flex">
+          {navLinks.slice(0, 5).map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -55,7 +59,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <a
             href={siteConfig.phoneLink}
             className="inline-flex items-center gap-2 text-sm font-bold text-[#071F5B]"
@@ -74,17 +78,17 @@ export default function Header() {
 
         <button
           type="button"
-          onClick={() => setIsOpen((open) => !open)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-[#071F5B] lg:hidden"
-          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={isOpen}
+          onClick={() => setIsMenuOpen((current) => !current)}
+          className="relative z-[110] inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-[#071F5B] transition hover:border-[#071F5B] xl:hidden"
+          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMenuOpen}
         >
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
+          {isMenuOpen ? <X size={23} /> : <Menu size={23} />}
         </button>
       </Container>
 
-      {isOpen && (
-        <div className="border-t border-slate-200 bg-white lg:hidden">
+      {isMenuOpen && (
+        <div className="absolute inset-x-0 top-[74px] z-[105] max-h-[calc(100vh-74px)] overflow-y-auto border-b border-slate-200 bg-white shadow-xl xl:hidden">
           <Container className="py-5">
             <nav className="flex flex-col">
               {navLinks.map((link) => (
@@ -92,20 +96,30 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={closeMenu}
-                  className="border-b border-slate-100 py-4 text-base font-bold text-[#071F5B]"
+                  className="border-b border-slate-100 py-4 text-base font-bold text-[#071F5B] transition hover:text-[#B97810]"
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
 
-            <a
-              href={siteConfig.phoneLink}
-              className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-[#071F5B] px-4 py-3 font-bold text-white"
-            >
-              <Phone size={18} />
-              Call {siteConfig.phone}
-            </a>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <a
+                href={siteConfig.phoneLink}
+                className="flex items-center justify-center gap-2 rounded-xl bg-[#071F5B] px-4 py-3.5 font-bold text-white transition hover:bg-[#123e91]"
+              >
+                <Phone size={18} />
+                Call {siteConfig.phone}
+              </a>
+
+              <Link
+                href="/contact"
+                onClick={closeMenu}
+                className="flex items-center justify-center rounded-xl bg-[#F5B51B] px-4 py-3.5 font-bold text-[#071F5B] transition hover:bg-yellow-300"
+              >
+                Get a Quote
+              </Link>
+            </div>
           </Container>
         </div>
       )}

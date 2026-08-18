@@ -1,11 +1,37 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowDownRight, Sparkles } from "lucide-react";
+import { useEffect, useRef } from "react";
 import Container from "@/components/ui/Container";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const startVideo = async () => {
+      try {
+        await video.play();
+      } catch {
+        // Poster image stays visible if autoplay is blocked.
+      }
+    };
+
+    startVideo();
+  }, []);
+
   return (
     <section className="relative min-h-[calc(100svh-74px)] overflow-hidden bg-[#071F5B]">
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
@@ -13,8 +39,9 @@ export default function Hero() {
         preload="metadata"
         poster="/images/hero/himalaya-hero.jpg"
         className="absolute inset-0 h-full w-full object-cover opacity-55"
+        aria-hidden="true"
       >
-        <source src="/videos/Welcome to India ! [CINEMATIC TRAVEL FILM].mp4" type="video/mp4" />
+        <source src="/videos/travel-hero.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-[#071F5B]/45 via-[#071F5B]/55 to-[#071F5B]/95 lg:bg-gradient-to-r lg:from-[#071F5B]/95 lg:via-[#071F5B]/65 lg:to-transparent" />
