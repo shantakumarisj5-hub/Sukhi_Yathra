@@ -6,51 +6,47 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const categories = [
   {
-    title: "Spiritual journeys",
+    title: "Char Dham Yatra",
     description:
-      "Sacred tours including Char Dham Yatra and other meaningful pilgrimages.",
-    href: "/spiritual-journeys",
-    image:
-      "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=85",
-    label: "Char Dham · Pilgrimages",
+      "A sacred Himalayan journey through Yamunotri, Gangotri, Kedarnath and Badrinath.",
+    href: "/packages/char-dham-yatra-2026",
+    image: "/images/packages/char-dham-yatra.jpg",
+    label: "12 Days / 11 Nights",
   },
   {
-    title: "India, beautifully planned",
+    title: "Kashi Yatra",
     description:
-      "Family holidays, hill stations, beaches, culture and unforgettable routes.",
-    href: "/india-tours",
-    image:
-      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=85",
-    label: "Hills · Beaches · Culture",
+      "A wider spiritual route through Kashi, Ayodhya, Prayagraj, Gaya, Bodhgaya and more.",
+    href: "/packages/kashi-yatra-special",
+    image: "/images/packages/kashi-yatra.jpg",
+    label: "10 Days",
   },
   {
-    title: "International escapes",
+    title: "Varanasi–Ayodhya",
     description:
-      "Dubai, Bali, Thailand, Singapore and more curated for you.",
-    href: "/international-tours",
-    image:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85",
-    label: "Asia · Middle East · Beyond",
+      "Temple visits, Ganga Aarti, Ram Mandir, sacred ghats and Buddhist heritage sites.",
+    href: "/packages/varanasi-ayodhya-shraddha-special",
+    image: "/images/packages/varanasi-ayodhya.jpg",
+    label: "Shraddha Special",
   },
   {
-    title: "Travel made personal",
+    title: "Custom Group Tours",
     description:
-      "A trip designed around your dates, group, interests and budget.",
+      "Plan a spiritual, family or group journey around your dates and preferences.",
     href: "/custom-tour",
-    image:
-      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=85",
-    label: "Designed around you",
+    image: "/images/hero/himalaya-hero.jpg",
+    label: "Tailored for you",
   },
 ];
 
 export default function TravelCategories() {
   return (
-    <section className="py-20 sm:py-28">
+    <section id="destinations" className="py-20 sm:py-28">
       <Container>
         <SectionHeading
-          eyebrow="Start somewhere special"
-          title="Every journey begins with an idea."
-          description="Choose a travel style, then let us help turn it into a smooth and memorable experience."
+          eyebrow="Sacred journeys, thoughtfully planned"
+          title="Travel with faith, comfort and care."
+          description="Explore Sukhi Yatra Holidays’ spiritual tour packages and speak with our team for your group travel requirements."
           align="center"
         />
 
@@ -69,7 +65,7 @@ export default function TravelCategories() {
                 className="object-cover transition duration-700 group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071F5B] via-[#071F5B]/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071F5B] via-[#071F5B]/35 to-transparent" />
 
               <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                 <div className="flex items-start justify-between gap-4">

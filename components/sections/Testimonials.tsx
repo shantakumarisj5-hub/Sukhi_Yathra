@@ -25,7 +25,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-[#071F5B] py-20 text-white sm:py-28">
+    <section id="reviews" className="bg-[#071F5B] py-20 text-white sm:py-28">
       <Container>
         <SectionHeading
           eyebrow="Travel stories"

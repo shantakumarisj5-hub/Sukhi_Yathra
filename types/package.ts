@@ -12,10 +12,15 @@ export interface TravelPackage {
   category: PackageCategory;
   duration: string;
   location: string;
+  price?: string;
+  oldPrice?: string;
+  departureDates?: string;
+  availability?: string;
   shortDescription: string;
   description: string;
   coverImage: string;
   gallery: string[];
+  video?: string;
   highlights: string[];
   inclusions: string[];
   exclusions: string[];

@@ -12,7 +12,7 @@ const benefits = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 sm:py-28">
+    <section id="why-us" className="py-20 sm:py-28">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem]">

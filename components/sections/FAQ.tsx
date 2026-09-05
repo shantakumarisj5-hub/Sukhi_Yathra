@@ -28,7 +28,7 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="py-20 sm:py-28">
+    <section id="faq" className="py-20 sm:py-28">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>

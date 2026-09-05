@@ -11,26 +11,26 @@ export default function FeaturedPackages() {
   );
 
   return (
-    <section className="bg-[#F4F2EC] py-20 sm:py-28">
+    <section id="packages" className="bg-[#FFFaf0] py-20 sm:py-28">
       <Container>
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
-            eyebrow="Featured journeys"
-            title="Made for the memories that stay."
-            description="A few inspiring places to begin. Every itinerary can be tailored to your needs."
+            eyebrow="Plan your next journey"
+            title="Featured Yatra Packages"
+            description="Sacred journeys planned with clear package details, comfortable travel arrangements and tour support."
           />
 
           <Link
             href="/packages"
             className="inline-flex w-fit items-center gap-2 font-bold text-[#071F5B] transition hover:text-[#B97810]"
           >
-            See all packages
+            View all packages
             <ArrowRight size={18} />
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {featuredPackages.slice(0, 3).map((travelPackage) => (
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {featuredPackages.map((travelPackage) => (
             <PackageCard
               key={travelPackage.slug}
               travelPackage={travelPackage}
